@@ -34,32 +34,47 @@
     <input id="tab3" type="radio" name="tabs">
     <label for="tab3"><i class="fa fa-bell-slash-o"></i><span>Cancelled</span></label>
 
-
+<!-- <table>
+    <tbody>
+        
+            <tr *ngFor="let user of users ">
+                <td>{{user.name}}</td>
+                <td>{{ user.email | titlecase}}</td>
+                <td>{{ user.appointmentId | titlecase}}</td>
+                <td>Rs.{{ user.date | number  }}/-</td>
+            </tr>
+            <tr *ngIf="!users || users.length==0">
+                <th colspan="5">
+                    <p class="text-right text-danger">Sorry,No Users available..!</p>
+                </th>
+            </tr>
+        </tbody> -->
+<!-- </table> -->
     <section id="content1" class="tab-content">
         <h3>Today</h3>
-        <div class="card border-success mb-3">
+        <div *ngFor="let user of users" class="card border-success mb-3">
             <div class="card-body text-dark">
                 <div class="card1">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="row2">
-                                    <b>Shanmuganthan Ganapathy</b>
+                                    <b>{{user.name}}</b>
                                 </div>
                                 <br />
                                 <div class="row2">
-                                    <b>shaan@meetaide.com</b>
+                                    <b>{{user.email}}</b>
                                 </div>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
                                 <div class="row2">
                                     Date:
-                                    <b>10-05-2020</b>
+                                    <b>{{user.Date}}</b>
                                 </div>
                                 <br />
                                 <div class="row2">
                                     Time:
-                                    <b>11:00 AM - 11:30AM</b>
+                                    <b>{{user.startTime }}AM - {{user.endTime }}AM</b>
                                 </div>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
@@ -79,29 +94,29 @@
             </div>
         </div>
         <h3>Next Week</h3>
-        <div class="card border-success mb-3">
+        <div *ngFor="let user of users" class="card border-success mb-3">
             <div class="card-body text-dark">
                 <div class="card1">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="row2">
-                                    <b>Shanmuganthan Ganapathy</b>
+                                    <b>{{user.name}}</b>
                                 </div>
                                 <br />
                                 <div class="row2">
-                                    <b>shaan@meetaide.com</b>
+                                    <b>{{user.email}}</b>
                                 </div>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
                                 <div class="row2">
                                     Date:
-                                    <b>10-05-2020</b>
+                                    <b>{{user.Date}}</b>
                                 </div>
                                 <br />
                                 <div class="row2">
                                     Time:
-                                    <b>11:00 AM - 11:30AM</b>
+                                    <b>{{user.startTime }}AM - {{user.endTime }}AM</b>
                                 </div>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
@@ -124,29 +139,29 @@
 
     <section id="content2" class="tab-content">
         <h3>Last Week</h3>
-        <div class="card border-primary mb-3">
+        <div *ngFor="let user of users" class="card border-primary mb-3">
             <div class="card-body text-dark">
                 <div class="card1">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="row2">
-                                    <b>Shanmuganthan Ganapathy</b>
+                                    <b>{{user.name}}</b>
                                 </div>
                                 <br />
                                 <div class="row2">
-                                    <b>shaan@meetaide.com</b>
+                                    <b>{{user.email}}</b>
                                 </div>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
                                 <div class="row2">
                                     Date:
-                                    <b>10-05-2020</b>
+                                    <b>{{user.Date}}</b>
                                 </div>
                                 <br />
                                 <div class="row2">
                                     Time:
-                                    <b>11:00 AM - 11:30AM</b>
+                                    <b>{{user.startTime }}AM - {{user.endTime }}AM</b>
                                 </div>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
@@ -210,29 +225,30 @@
     </section>
     <section id="content3" class="tab-content">
         <h3>Next Week</h3>
-        <div class="card border-danger mb-3">
+        <div *ngFor="let user of users">
+        <div *ngIf="user.state==false"  class="card border-danger mb-3">
             <div class="card-body text-dark">
                 <div class="card1">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="row2">
-                                    <b>Shanmuganthan Ganapathy</b>
+                                    <b>{{user.name}}</b>
                                 </div>
                                 <br />
                                 <div class="row2">
-                                    <b>shaan@meetaide.com</b>
+                                    <b>{{user.email}}</b>
                                 </div>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
                                 <div class="row2">
                                     Date:
-                                    <b>16-05-2020</b>
+                                    <b>{{user.Date}}</b>
                                 </div>
                                 <br />
                                 <div class="row2">
                                     Time:
-                                    <b>11:00 AM - 11:30AM</b>
+                                    <b>{{user.startTime }}AM - {{user.endTime }}AM</b>
                                 </div>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
@@ -251,5 +267,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
 </div>
